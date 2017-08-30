@@ -1,6 +1,8 @@
 'use strict';
 
 const STORE = [];
+let datastore = []; 
+let user_input = ""; 
 const api_url = 'https://www.googleapis.com/youtube/v3/search'; 
 const api_key = 'AIzaSyBFSTdHGhgwD7sUXEQ0UlXSKkro4SP3EnA'; 
 
@@ -8,9 +10,22 @@ function handleFormSubmit(){
     $(".js-form").on("submit", function(event){
         event.preventDefault(); 
         const userinput = $(this).find(".js-input"); 
-        const searchterm = userinput.val(); 
+        const searchterm = userinput.val();
+        user_input = searchterm;  
         userinput.val(""); 
         getDataFromApi(searchterm, displayData)
+    }); 
+}
+
+function handleNextButton(){
+    $(".js-next").on("click", function(event){
+        const request = {
+            pageToken: datastore.nextPageToken, 
+            part: 'snippet',
+            key: api_key,
+            q: user_input
+        }
+        $.getJSON(api_url, request, displayData); 
     }); 
 }
 
@@ -44,11 +59,12 @@ function getDataFromApi(searchterm, callback){
 }
 
 function displayData(data){
-    console.log(data); 
+    console.log(data);   
     const results = data.items.map((item, index) => {
         STORE.push(renderString(item, index));
      }); 
      render(); 
+     datastore = data;
 }
 
             // <a href="https://www.youtube.com/watch?v=${item.id.videoId}">
@@ -71,12 +87,14 @@ function render(){
     $(".js-search-results").html(STORE);
     $(".lightbox").addClass("hidden");
     $(".js-video").addClass("hidden");
+    $(".js-next").removeClass("hidden"); 
 }
 
 function main(){
     handleFormSubmit();
     handleRenderLightbox();
     handleRemoveLightbox(); 
+    handleNextButton(); 
 }
 
 $(main);
