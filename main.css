@@ -54,6 +54,7 @@ body {
   display: block;
   margin: 30px auto 15px auto; 
   margin-right: auto; 
+  cursor: pointer; 
 }
 
 .next-prev-buttons {
