@@ -87,13 +87,9 @@ function displayData(data){
      datastore = data;
 }
 
-            // <a href="https://www.youtube.com/watch?v=${item.id.videoId}">
-            //     <img src="${item.snippet.thumbnails.default.url}" alt="${item.snippet.description}" class="">
-            // </a>
-
 function renderString(item){
     return `
-        <div class="list-item">
+        <div class="listitem">
             <img src="${item.snippet.thumbnails.medium.url}" data-index="https://www.youtube.com/embed/${item.id.videoId}?autoplay=1" alt="${item.snippet.description}" class="js-image image">
             <a href="https://www.youtube.com/channel/${item.snippet.channelId}">
                 <i class="fa fa-television more-button" aria-hidden="true"></i>
