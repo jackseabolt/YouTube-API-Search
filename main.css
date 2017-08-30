@@ -1,0 +1,24 @@
+.lightbox {
+  background-color: black;
+  opacity: 0.8;
+  overflow: scroll;
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.js-video {
+  z-index: 11;
+  position: fixed;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
