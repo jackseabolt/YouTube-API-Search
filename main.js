@@ -1,6 +1,6 @@
 'use strict';
 
-const STORE = [];
+let STORE = [];
 let datastore = []; 
 let user_input = ""; 
 const api_url = 'https://www.googleapis.com/youtube/v3/search'; 
@@ -59,7 +59,8 @@ function getDataFromApi(searchterm, callback){
 }
 
 function displayData(data){
-    console.log(data);   
+    console.log(data); 
+    STORE = [];  
     const results = data.items.map((item, index) => {
         STORE.push(renderString(item, index));
      }); 
