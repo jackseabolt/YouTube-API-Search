@@ -1,5 +1,6 @@
 'use strict';
 
+let nextCounter = 0;
 let STORE = [];
 let datastore = []; 
 let user_input = ""; 
@@ -19,6 +20,8 @@ function handleFormSubmit(){
 
 function handleNextButton(){
     $(".js-next").on("click", function(event){
+        nextCounter++; 
+        $(".js-previous").removeClass("hidden"); 
         const request = {
             pageToken: datastore.nextPageToken, 
             part: 'snippet',
@@ -26,6 +29,22 @@ function handleNextButton(){
             q: user_input
         }
         $.getJSON(api_url, request, displayData); 
+    }); 
+}
+
+function handlePreviousButton(){
+    $(".js-previous").on("click", function(event){
+        nextCounter--;
+        if(nextCounter===0){
+            $(".js-previous").addClass("hidden");
+        }
+        const request = {
+            pageToken: datastore.prevPageToken, 
+            part: 'snippet',
+            key: api_key,
+            q: user_input
+        }
+        $.getJSON(api_url, request, displayData);
     }); 
 }
 
@@ -96,6 +115,7 @@ function main(){
     handleRenderLightbox();
     handleRemoveLightbox(); 
     handleNextButton(); 
+    handlePreviousButton(); 
 }
 
 $(main);
