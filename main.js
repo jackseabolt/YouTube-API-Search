@@ -15,11 +15,11 @@ function handleFormSubmit(){
 }
 
 function handleRenderLightbox() {
-    $(".js-search-results").on("click", ".list-item", function(event) {
+    $(".js-search-results").on("click", ".js-image", function(event) {
         console.log('hello');
         $(".lightbox").removeClass("hidden");
         $(".js-video").removeClass("hidden");
-        const videoUrl = $(event.currentTarget).find('img').attr('data-index');
+        const videoUrl = $(event.currentTarget).parent().find('img').attr('data-index');
         console.log(event.currentTarget); 
         console.log(videoUrl);
         $(".js-iframe").attr("src",videoUrl);
@@ -59,7 +59,10 @@ function renderString(item){
     return `
         <div class="list-item">
             <h3>${item.snippet.title}</h3>
-            <img src="${item.snippet.thumbnails.medium.url}" data-index="https://www.youtube.com/embed/${item.id.videoId}?autoplay=1" alt="${item.snippet.description}" class="">
+            <img src="${item.snippet.thumbnails.medium.url}" data-index="https://www.youtube.com/embed/${item.id.videoId}?autoplay=1" alt="${item.snippet.description}" class="js-image image">
+            <a href="https://www.youtube.com/channel/${item.snippet.channelId}">
+                <button>More from this Channel</button>
+                </a>
         </div>
     `
 }
