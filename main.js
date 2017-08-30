@@ -94,11 +94,10 @@ function displayData(data){
 function renderString(item){
     return `
         <div class="list-item">
-            <h3>${item.snippet.title}</h3>
             <img src="${item.snippet.thumbnails.medium.url}" data-index="https://www.youtube.com/embed/${item.id.videoId}?autoplay=1" alt="${item.snippet.description}" class="js-image image">
             <a href="https://www.youtube.com/channel/${item.snippet.channelId}">
-                <button>More from this Channel</button>
-                </a>
+                <i class="fa fa-television more-button" aria-hidden="true"></i>
+            </a>
         </div>
     `
 }

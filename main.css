@@ -10,6 +10,22 @@
   top: 0;
 }
 
+h1 {
+  text-align: center; 
+  margin-top: 80px; 
+  font-family: 'Oswald', sans-serif;
+  font-size: 40px; 
+}
+
+form {
+  text-align: center; 
+}
+
+body {
+  background-color: #e3e3e5; 
+  margin: 0px; 
+}
+
 .hidden {
   display: none;
 }
@@ -23,6 +39,65 @@
   transform: translate(-50%, -50%);
 }
 
+.search-results {
+  text-align: center; 
+}
+
 .image {
   display: block;
+  margin: 30px auto 15px auto; 
+  margin-right: auto; 
+}
+
+.next-prev-buttons {
+  padding: 8px; 
+  width: 120px;
+  text-align: center;  
+  border-radius: 5px; 
+  font-size: 12px; 
+  border: 0px; 
+  color: white; 
+  margin: 0px; 
+  background-color: #313233; 
+}
+
+.next-prev-buttons:hover {
+  background-color: #2b2c2d; 
+}
+
+.submit-button {
+  padding: 8px 10px; 
+  border-radius: 5px; 
+  font-size: 14px; 
+  border: 0px; 
+  color: white; 
+  background-color: #3f516d; 
+}
+
+.submit-button:hover {
+  background-color: #334259;
+  cursor: pointer; 
+}
+
+.input {
+  width: 40%; 
+  padding: 7px 10px; 
+  border-radius: 5px; 
+  font-size: 14px; 
+  border: 1px solid gray;
+  margin: 20px 0px 50px 0px;  
+}
+
+.more-button {
+  display: inline-block; 
+  position: relative; 
+  left: -100px; 
+  color: gray; 
+  font-size: 14px; 
+}
+
+nav {
+  margin-top: 50px; 
+  margin-bottom: 100px; 
+  text-align: center; 
 }
