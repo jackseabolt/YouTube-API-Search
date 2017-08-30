@@ -10,6 +10,13 @@
   top: 0;
 }
 
+.listitem {
+  width: 320px;  
+  display: inline-block;
+  margin-left: 20px; 
+  margin-right: 20px; 
+}
+
 h1 {
   text-align: center; 
   margin-top: 80px; 
@@ -47,6 +54,7 @@ body {
   display: block;
   margin: 30px auto 15px auto; 
   margin-right: auto; 
+  cursor: pointer; 
 }
 
 .next-prev-buttons {
@@ -99,5 +107,7 @@ body {
 nav {
   margin-top: 50px; 
   margin-bottom: 100px; 
-  text-align: center; 
+  text-align: center;
+  display: block; 
+  clear: both;  
 }
